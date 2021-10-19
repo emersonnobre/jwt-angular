@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -15,16 +16,25 @@ export class LoginComponent implements OnInit {
     password: ''
   })
   
-  constructor(private formBuilder: FormBuilder, private httpClient: HttpClient, private router: Router) { 
+  constructor(
+    private formBuilder: FormBuilder, 
+    private httpClient: HttpClient, 
+    private router: Router,
+    private loginService: LoginService) { 
   }
 
   ngOnInit(): void {
   }
 
-  submit(): void {
-    this.httpClient.post('http://localhost:8080/api/login', this.form.getRawValue(), {
-      withCredentials: true
-    }).subscribe(() => this.router.navigate(['/']))
+  submit() {
+    let email = this.form.value.email
+    let password = this.form.value.password
+    return this.httpClient.post<any>(`http://localhost:8080/login`, { email, password }).subscribe(res => {
+      console.log(res)
+    },
+    error => {
+      console.log(error)
+    })
   }
 
 }
