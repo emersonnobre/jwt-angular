@@ -1,8 +1,20 @@
+<div class="error"></div>
+<div class="success"></div>
 <div class="container">
+    
     <form class="login-form" [formGroup]="form" (submit)="submit()">
         <h1>Please sign in</h1>
         <input formControlName="email" type="email" placeholder="E-mail" required>
         <input formControlName="password" type="password" placeholder="Password" required>
-        <input type="submit" value="Log In">
+        <div class="btns-group">
+            <input class="btn btn-success" type="submit" value="Log In">
+            <button class="btn btn-error" type="button" (click)="logout()">logout</button>
+        </div>
+        
     </form>
+
+    <button type="button" (click)="getUsers()">Get</button>
+    <div class="usuarios"></div>
 </div>
+
+

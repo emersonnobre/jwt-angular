@@ -1,4 +1,46 @@
+
+
 .login-form {
-    width: 200px;
+    width: 50vw;
     border: 1px black solid;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.btns-group {
+    margin: .9rem 0;
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    padding: 3.7px;
+    opacity: 0.73;
+    border: .15px solid;
+    color: white;
+}
+
+.btn-success {
+    background-color: #2da44e;
+}
+
+.btn:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+.login-form input[type=email], input[type=password] {
+    width: 80%;
+    margin-bottom: .3rem;
+}
+
+.usuarios {
+    display: block;
 }
